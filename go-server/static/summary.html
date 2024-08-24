@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Summary</title>
+</head>
+<body>
+    <h2>Form Submissions Summary</h2>
+    <div id="submissions"></div>
+
+    <script>
+        fetch('/summaryData')
+        .then(response => response.json())
+        .then(data => {
+            let summaryDiv = document.getElementById('submissions');
+            if (data.length === 0) {
+                summaryDiv.innerHTML = '<p>No submissions yet.</p>';
+            } else {
+                let content = '<ul>';
+                data.forEach(item => {
+                    content += `<li><strong>${item.name}</strong> (${item.email}): ${item.address} - ${item.phone}</li>`;
+                });
+                content += '</ul>';
+                summaryDiv.innerHTML = content;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching summary data:', error);
+        });
+    </script>
+</body>
+</html>

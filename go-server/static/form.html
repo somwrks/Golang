@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Form</title>
+</head>
+<body>
+    <div>
+        <form method="POST" action="/form" onsubmit="return validateForm()">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" value="" required/>
+            
+            <label for="address">Address</label>
+            <input id="address" name="address" type="text" value="" required/>
+            
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" value="" required/>
+            
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" value="" required/>
+
+            <input type="submit" value="Submit"/>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            // Example client-side validation
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            if (name == "" || email == "") {
+                alert("Name and Email must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
