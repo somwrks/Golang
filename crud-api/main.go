@@ -28,5 +28,5 @@ import (
  func main(){
 	r:= mux.NewRouter()
 
-	r.HandleFunc()
+	r.HandleFunc("/movies",getMovies)
 }
