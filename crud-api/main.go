@@ -7,7 +7,7 @@ import (
 	"math/rand"
 	"net/http"
 	"strconv"
-	"github.com/gorilla/mux@latest"
+	"github.com/gorilla/mux"
 )
 
 
@@ -17,3 +17,16 @@ import (
 	Title string  `json:"title"`
 	Director *Director `json:"director"`
  }
+
+ type Director struct{
+	Firstname string `json:"firstname"`
+	Lastname string `json:"lastname"`
+ } 
+
+ var movies []Movie
+
+ func main(){
+	r:= mux.NewRouter()
+
+	r.HandleFunc()
+}
