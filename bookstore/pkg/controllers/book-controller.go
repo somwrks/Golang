@@ -9,8 +9,6 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/somwrks/Golang/bookstore/pkg/models"
 	"github.com/somwrks/Golang/bookstore/pkg/utils"
-	"github.com/somwrks/golang/bookstore/pkg/models"
-	"github.com/somwrks/golang/bookstore/pkg/utils"
 )
 
 var NewBook models.Book
@@ -77,7 +75,8 @@ func UpdateBook ( w http.ResponseWriter , r *http.Request){
 			bookDetails.Author = updateBook.Author
 	}
 	db.Save(&bookDetails)
-	res, _ := json.Marshal("Content-Type", "pkglication/json")
+	res, _ := json.Marshal(bookDetails)
+	w.Header().Set("Content-Type", "pkglication/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 
