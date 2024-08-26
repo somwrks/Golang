@@ -61,7 +61,6 @@ json.NewEncoder(w).Encode(movie)
 }
 func updateMovie(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type","application/json")
-	w.Header().Set("Content-Type","application/json")
 	params:=mux.Vars(r)
 	for index, item := ranges movies {
 		if item.ID == params["id"]{
