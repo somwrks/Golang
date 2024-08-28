@@ -13,7 +13,7 @@ import (
 func main() {
 	fmt.Print("Hello!")
 
-	sess, err := discordgo.New("Bot MTI3ODQ4NjczOTAxNDUyMDkwMw.G4-3H5.HmYjnt2XcS6MsWVG0ZCv8NAtJmrfDd0Q7kpdsU")
+	sess, err := discordgo.New("Bot {ENV}")
 	if err != nil {
 		log.Fatal(err)
 	}
